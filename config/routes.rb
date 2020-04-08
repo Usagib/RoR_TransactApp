@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/new_mytransaction', to: 'mytransactions#create'
   get '/mytransactions', to: 'mytransactions#index'
 
-  root 'static_pages#home'
+  root 'mytransactions#index'
 
   post '/users/new', to: 'users#create'
 

@@ -1,11 +1,44 @@
-<div class="container posts-board">
+<div class="container-fluid">
+  <div class="row main-title">
 
-    <h3> Total Amount: <%= total_ungrouped_amount %></h3>
+    <span class="title ml-5">External Transactions</span>
+    <%= render 'shared/toggler' %>
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <span class="ml-5"> Total Amount: <%= total_ungrouped_amount %></span>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+
+<div class="container">
+
     <% @mytransactions.each do |mytransaction| %>
-          <h1><%= mytransaction.name if !mytransaction.group? %></h1>
-          <p><%= mytransaction.amount if !mytransaction.group? %></p>
-          <p><%= mytransaction.created_at if !mytransaction.group? %></p>
-    <br><br>
+    <div class="row">
+      <div class="col-5">
+        <%= mytransaction.name if mytransaction.nogroup? %>
+      </div>
+      <div class="col-3">
+        <p><%= mytransaction.amount if mytransaction.nogroup? %></p>
+      </div>
+      <div class="col-4">
+        <p><%= mytransaction.created_at if mytransaction.nogroup? %></p>
+      </div>
+    </div>
     <% end %>
-    <%= link_to "New transaction", new_mytransaction_path %>
+    <div class="row">
+      <div class="col-4">
+
+      </div>
+      <div class="col-4">
+        <%= link_to "New transaction", new_mytransaction_path, class: "btn btn-primary" %>
+      </div>
+      <div class="col-4">
+
+      </div>
+
+    </div>
+
 </div>

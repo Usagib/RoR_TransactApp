@@ -7,7 +7,12 @@ class Mytransaction < ApplicationRecord
   validates :amount, presence: true
 
   def group?
-    self.group_id == 0
+    self.group_id != nil
+    self.group.name != 'No group'
+  end
+
+  def nogroup?
+    self.group.name == 'No group'
   end
 
 end

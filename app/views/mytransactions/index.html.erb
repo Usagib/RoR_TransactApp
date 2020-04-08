@@ -1,12 +1,48 @@
-<div class="container">
+<div class="container-fluid">
+  <div class="row main-title">
 
-    <h3> Total Amount: <%= total_group_amount %></h3>
+    <span class="title ml-5">My Transactions</span>
+    <%= render 'shared/toggler' %>
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <span class="ml-5"> Total Amount: <%= total_group_amount %></span>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+
+<div class="container">
     <% @mytransactions.each do |mytransaction| %>
-          
-          <h1><%= mytransaction.name if mytransaction.group? %></h1>
-          <p><%= mytransaction.amount if mytransaction.group? %></p>
-          <p><%= mytransaction.created_at if mytransaction.group? %></p>
-    <br><br>
+    <div class="row">
+      <div class="col-2">
+        <% if mytransaction.group? %>
+        <img class="group-icon" src="<%= mytransaction.group.picture.url %>" alt="">
+        <% end %>
+      </div>
+      <div class="col-5">
+        <h4><%= mytransaction.name if mytransaction.group? %></h4>
+      </div>
+      <div class="col-2">
+        <p><%= mytransaction.amount if mytransaction.group? %></p>
+      </div>
+      <div class="col-3">
+        <p><%= mytransaction.created_at if mytransaction.group? %></p>
+      </div>
+    </div>
     <% end %>
-    <%= link_to "New transaction", new_mytransaction_path %>
+    <div class="row">
+      <div class="col-4">
+
+      </div>
+      <div class="col-4">
+        <%= link_to "New transaction", new_mytransaction_path, class: "btn btn-primary" %>
+      </div>
+      <div class="col-4">
+
+      </div>
+
+    </div>
+
 </div>

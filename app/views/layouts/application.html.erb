@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta id="testViewport" name=viewport content="width=device-width, initial-scale=1">
+    <script>
+      if (screen.width > 590) {
+        var mvp = document.getElementById('testViewport');
+        mvp.setAttribute('content','width=980');
+      }
+    </script>
     <title>ror_capstone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

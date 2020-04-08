@@ -1,18 +1,20 @@
-<div class="container posts-new">
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="container-fluid">
+  <div class="row main-title">
+    <span class="title ml-5">New Group</span>
+    <%= render 'shared/toggler' %>
   </div>
 </div>
-<h1>new group</h1>
-<%= form_for(@group, url: yield(:url)) do |f| %>
-<%= render 'shared/errors', object: @group %>
+<div class="conatiner">
+  <%= form_for(@group, url: yield(:url)) do |f| %>
+  <%= render 'shared/errors', object: @group %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+    <%= f.label :name, class: 'form-text' %>
+    <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :picture %>
-  <%= f.file_field :picture, class: 'form-control' %>
+    <%= f.label :picture, class: 'form-text' %>
+    <%= f.file_field :picture, class: 'form-control' %>
 
-  <%= f.submit 'create group', class: "btn btn-primary margin-top-4" %>
-<% end %>
+    <br>
+    <%= f.submit 'create group', class: "btn btn-primary mt-4" %>
+  <% end %>
 </div>
