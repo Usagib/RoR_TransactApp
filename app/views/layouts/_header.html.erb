@@ -1,0 +1,21 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "ror_capstone", root_path, id: "logo", class: "navbar-brand" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Sign up", new_user_path if !logged_in? %></li>
+        <li><%= link_to "Transactions", transactions_path %></li>
+        <li><%= link_to "Groups", groups_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "New transaction", new_transaction_path %></li>
+          <li><%= link_to "New group", new_group_path %></li>
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

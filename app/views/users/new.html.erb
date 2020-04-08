@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+
+    </div>
+    <div class="col-lg-6">
+      <h1>signup</h1>
+      <%= form_for(@user, url: yield(:url)) do |f| %>
+      <%= render 'shared/errors', object: @user %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.submit 'createuser', class: "btn btn-primary margin-top-4" %>
+      <% end %>
+    </div>
+  </div>
+</div>
