@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :logged_in_user
+  skip_before_action :verify_authenticity_token
 
   def new
     @transaction = Transaction.new
@@ -16,7 +17,7 @@ class TransactionsController < ApplicationController
   end
 
   def index
-    @transactions = Transaction.all
+    @transactions = @current_user.transactions
   end
 
   def logged_in_user
