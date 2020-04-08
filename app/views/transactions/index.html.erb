@@ -1,16 +1,18 @@
 <div class="container posts-board">
+
+    <h3> Total Amount: <%= total_group_amount %></h3>
     <% @transactions.each do |transaction| %>
     <div class="row">
       <div class="col-lg-2">
-        <h3> <%= transaction.user.name if logged_in? %>
-            <%= 'Anonymous' if !logged_in? %>
-        </h3>
       </div>
       <div class="col-lg-10">
-          <h1><%= transaction.name %></h1>
-          <p><%= transaction.amount %></p>
+          <%= image_tag transaction.group.picture.url, size: "50x50" if transaction.group? %>
+          <h1><%= transaction.name if transaction.group? %></h1>
+          <p><%= transaction.amount if transaction.group? %></p>
+          <p><%= transaction.created_at if transaction.group? %></p>
       </div>
     </div>
     <br><br>
     <% end %>
+    <%= link_to "New transaction", new_transaction_path %>
 </div>

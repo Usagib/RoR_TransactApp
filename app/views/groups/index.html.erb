@@ -2,13 +2,10 @@
     <% @groups.each do |group| %>
     <div class="row">
       <div class="col-lg-2">
-        <img class="img-fluid rounded mb-3 mb-md-0" src="https://picsum.photos/75/75?blur" alt="">
-        <h3> <%= group.user.name if logged_in? %>
-            <%= 'Anonymous' if !logged_in? %>
-        </h3>
+        <%= image_tag group.picture.url, size: "50x50" if group.picture? %>
       </div>
       <div class="col-lg-10">
-          <h1><%= group.name %></h1>
+          <h3><%= group.name %></h3>
       </div>
     </div>
     <br><br>

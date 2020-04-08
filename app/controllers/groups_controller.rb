@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :logged_in_user
+  skip_before_action :verify_authenticity_token
 
   def new
     @group = Group.new
@@ -27,6 +28,6 @@ class GroupsController < ApplicationController
 
 private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, :picture)
   end
 end
