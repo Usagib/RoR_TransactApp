@@ -17,8 +17,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def index
     @groups = Group.order(:name).includes(:mytransactions)
@@ -30,7 +29,8 @@ class GroupsController < ApplicationController
     flash[:danger] = 'Please log in.' unless logged_in?
   end
 
-private
+  private
+
   def group_params
     params.require(:group).permit(:name, :picture)
   end

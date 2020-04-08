@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Transaction, type: :model do
-
+RSpec.describe MyTransaction, type: :model do
   context 'ActiveRecord Associations' do
     it { should belong_to(:user) }
     it { should have_many(:groups) }

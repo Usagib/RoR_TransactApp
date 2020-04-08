@@ -30,7 +30,8 @@ class MytransactionsController < ApplicationController
     flash[:danger] = 'Please log in.' unless logged_in?
   end
 
-private
+  private
+
   def mytransaction_params
     params.require(:mytransaction).permit(:name, :amount, :group_id)
   end

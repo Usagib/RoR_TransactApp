@@ -7,7 +7,6 @@ class Group < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   def transaction?
-    self.mytransactions != nil
+    mytransactions != nil
   end
-
 end
