@@ -1,0 +1,16 @@
+<div class="container posts-board">
+    <% @transactions.each do |transaction| %>
+    <div class="row">
+      <div class="col-lg-2">
+        <h3> <%= transaction.user.name if logged_in? %>
+            <%= 'Anonymous' if !logged_in? %>
+        </h3>
+      </div>
+      <div class="col-lg-10">
+          <h1><%= transaction.name %></h1>
+          <p><%= transaction.amount %></p>
+      </div>
+    </div>
+    <br><br>
+    <% end %>
+</div>

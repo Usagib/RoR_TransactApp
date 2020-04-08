@@ -1,0 +1,18 @@
+<div class="container posts-new">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  </div>
+</div>
+  <h1>new transaction</h1>
+  <%= form_for(@transaction, url: yield(:url)) do |f| %>
+  <%= render 'shared/errors', object: @transaction %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :amount %>
+    <%= f.number_field :amount, class: 'form-control' %>
+
+    <%= f.submit 'create transaction', class: "btn btn-primary margin-top-4" %>
+  <% end %>
+</div>

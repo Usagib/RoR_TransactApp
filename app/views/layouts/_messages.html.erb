@@ -1,0 +1,10 @@
+<div class="container-fluid error-messages">
+    <% flash.each do |message_type, message| %>
+      <div class="row">
+        <div class="col-12 mt-4 alert alert-<%= message_type %>">
+          <a href="#" class="close" data-dismiss="alert">&#215;</a>
+          <%= message %>
+        </div>
+      </div>
+    <% end %>
+</div>
