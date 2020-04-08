@@ -1,0 +1,12 @@
+<div class="container posts-new">
+  <div class="row">
+    <h1><%= @group.name %></h1>
+    <h3>created by <%= @group.user.name  %></h3>
+
+      <% @group.transactions.each do |t| %>
+        <%= t.user.name %>
+        <%= t.name %>
+        <%= t.amount %>
+      <% end %>
+  </div>
+</div>

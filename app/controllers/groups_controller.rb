@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[show]
   before_action :logged_in_user
   skip_before_action :verify_authenticity_token
 
@@ -16,8 +17,11 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def index
-    @groups = Group.all
+    @groups = Group.order(:name)
   end
 
   def logged_in_user
@@ -29,5 +33,9 @@ class GroupsController < ApplicationController
 private
   def group_params
     params.require(:group).permit(:name, :picture)
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 end

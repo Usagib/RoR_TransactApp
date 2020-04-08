@@ -6,6 +6,8 @@
       </div>
       <div class="col-lg-10">
           <h3><%= group.name %></h3>
+          <h4><%= group.created_at %></h4>
+          <%= link_to "Go to group", group_path(group) %>
       </div>
     </div>
     <br><br>
