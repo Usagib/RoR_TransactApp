@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_175607) do
+ActiveRecord::Schema.define(version: 2020_04_02_211034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_04_02_175607) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "transaction_id"
+    t.index ["transaction_id"], name: "index_groups_on_transaction_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
@@ -40,8 +42,11 @@ ActiveRecord::Schema.define(version: 2020_04_02_175607) do
     t.string "gravatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "password_digest"
   end
 
+  add_foreign_key "groups", "transactions"
   add_foreign_key "groups", "users"
   add_foreign_key "transactions", "groups"
   add_foreign_key "transactions", "users"
