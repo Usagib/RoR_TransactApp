@@ -10,6 +10,9 @@
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
 
+  <%= f.label :picture %>
+  <%= f.file_field :picture, class: 'form-control' %>
+
   <%= f.submit 'create group', class: "btn btn-primary margin-top-4" %>
 <% end %>
 </div>

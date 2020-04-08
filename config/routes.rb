@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/new_group', to: 'groups#new'
   post '/new_group', to: 'groups#create'
   get '/groups', to: 'groups#index'
+  get '/external', to: 'transactions#external'
 
   get '/new_transaction', to: 'transactions#new'
   post '/new_transaction', to: 'transactions#create'

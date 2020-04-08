@@ -20,6 +20,10 @@ class TransactionsController < ApplicationController
     @transactions = @current_user.transactions
   end
 
+  def external
+    @transactions = @current_user.transactions
+  end
+
   def logged_in_user
     store_location
     redirect_to login_path unless logged_in?
