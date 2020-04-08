@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       remember @user
       flash.now[:success] = 'The user has been created'
-      redirect_to @user
+      redirect_to mytransactions_path
     else
       render 'new'
     end

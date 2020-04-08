@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.order(:name)
+    @groups = Group.order(:name).includes(:mytransactions)
   end
 
   def logged_in_user
