@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_secure_password
   has_many :groups
-  has_many :transactions
+  has_many :mytransactions
 
   def forget_me
     update_attribute(:remember_token, nil)

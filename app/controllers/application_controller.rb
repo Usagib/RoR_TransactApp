@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
   include SessionHelper
-  include TransactionHelper
+  include MytransactionHelper
 end

@@ -3,15 +3,18 @@
   <div class="col-md-6 col-md-offset-3">
   </div>
 </div>
-  <h1>new transaction</h1>
-  <%= form_for(@transaction, url: yield(:url)) do |f| %>
-  <%= render 'shared/errors', object: @transaction %>
+  <h1>new mytransaction</h1>
+  <%= form_for(@mytransaction, url: yield(:url)) do |f| %>
+  <%= render 'shared/errors', object: @mytransaction %>
 
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 
     <%= f.label :amount %>
     <%= f.number_field :amount, class: 'form-control' %>
+
+    <%= f.label :group %>
+    <%= f.collection_select :group_id, Group.all, :id, :name, {:prompt => "no group"} %>
 
     <%= f.submit 'create transaction', class: "btn btn-primary margin-top-4" %>
   <% end %>
