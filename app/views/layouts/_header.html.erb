@@ -1,22 +1,49 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "ror_capstone", root_path, id: "logo", class: "navbar-brand" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Sign up", new_user_path if !logged_in? %></li>
-        <li><%= link_to "My transactions", transactions_path %></li>
-        <li><%= link_to "External transactions", external_path %></li>
-        <li><%= link_to "All Groups", groups_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "New transaction", new_transaction_path %></li>
-          <li><%= link_to "New group", new_group_path %></li>
-          <li><%= link_to "Profile", current_user %></li>
-          <li><%= link_to "Log out", logout_path, method: :delete %></li>
-          <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<header>
+
+    <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+
+                    <h3>TransAct</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+
+                    <img class="ml-5 mb-3 rounded-circle" src="https://picsum.photos/150/150" alt=""/>
+                    <p class="ml-5"><%=@current_user.name if logged_in?%></p>
+                    <li><%= link_to "Sign up", new_user_path if !logged_in? %></li>
+                    <li><%= link_to "My transactions", mytransactions_path %></li>
+                    <li><%= link_to "External transactions", external_path %></li>
+                    <li><%= link_to "All Groups", groups_path %></li>
+                    <% if logged_in? %>
+                      <li><%= link_to "New transaction", new_mytransaction_path %></li>
+                      <li><%= link_to "New group", new_group_path %></li>
+                      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                      <% else %>
+                      <li><%= link_to "Log in", login_path %></li>
+                    <% end %>
+                </ul>
+
+            </nav>
+
+            <!-- Page Content  -->
+
+    </div>
 </header>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar, #content').toggleClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   context 'ActiveRecord Associations' do
-    it { should have_many(:transactions) }
+    it { should have_many(:mytransactions) }
     it { should have_many(:groups) }
   end
 

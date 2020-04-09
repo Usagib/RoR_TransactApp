@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row main-title">
+    <span class="title ml-5"><%= @group.name %></span>
+    <%= render 'shared/toggler' %>
+  </div>
+</div>
+
+<div class="container">
+
+  <p>created by <%= @group.user.name  %></p>
+
+    <% @group.mytransactions.each do |t| %>
+    <div class="row">
+      <div class="col-4">
+        <p>created by:<%= t.user.name %></p>
+      </div>
+      <div class="col-4">
+        <p><%= t.name %></p>
+      </div>
+      <div class="col-4">
+        <p>$<%= t.amount %></p>
+      </div>
+    </div>
+    <% end %>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row main-title">
+    <span class="title ml-5">New Transaction</span>
+    <%= render 'shared/toggler' %>
+  </div>
+</div>
+<div class="conatiner">
+  <%= form_for(@mytransaction, url: yield(:url)) do |f| %>
+  <%= render 'shared/errors', object: @mytransaction %>
+
+    <%= f.label :name, class: 'form-text' %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :amount, class: 'form-text' %>
+    <%= f.number_field :amount, class: 'form-control' %>
+
+    <%= f.label :group, class: 'form-text' %>
+    <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true %>
+    <br>
+    <%= f.submit 'create transaction', class: "btn btn-primary mt-4" %>
+  <% end %>
+</div>

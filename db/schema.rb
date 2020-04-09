@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_071833) do
+ActiveRecord::Schema.define(version: 2020_04_08_104949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,20 +21,20 @@ ActiveRecord::Schema.define(version: 2020_04_08_071833) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "transaction_id"
-    t.index ["transaction_id"], name: "index_groups_on_transaction_id"
+    t.bigint "mytransaction_id"
+    t.index ["mytransaction_id"], name: "index_groups_on_mytransaction_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "mytransactions", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "group_id"
-    t.index ["group_id"], name: "index_transactions_on_group_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["group_id"], name: "index_mytransactions_on_group_id"
+    t.index ["user_id"], name: "index_mytransactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_071833) do
     t.string "remember_token"
   end
 
-  add_foreign_key "groups", "transactions"
+  add_foreign_key "groups", "mytransactions"
   add_foreign_key "groups", "users"
-  add_foreign_key "transactions", "groups"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "mytransactions", "groups"
+  add_foreign_key "mytransactions", "users"
 end
