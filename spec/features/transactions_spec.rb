@@ -3,10 +3,7 @@ require 'database_cleaner/active_record'
 
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.start
-
-# rubocop: disable Metrics/BlockLength
 RSpec.feature 'transactions', type: :feature do
-
   before(:each) do
     DatabaseCleaner.clean
     visit users_new_path
@@ -18,26 +15,22 @@ RSpec.feature 'transactions', type: :feature do
     end
     click_button 'createuser'
     visit new_group_path
-    within ('form') do
+    within('form') do
       fill_in 'Name', with: 'Test group'
-      attach_file ("spec/files/barcode.png")
+      attach_file 'spec/files/barcode.png'
     end
     click_button 'create group'
   end
 
   context 'create transaction' do
-
     scenario 'should not create new transaction' do
       visit new_mytransaction_path
-      within ('form') do
+      within('form') do
         fill_in 'Name', with: 'Test transactions'
         fill_in 'Amount', with: 1234
       end
       click_button 'create transaction'
       expect(page).to have_content('Group must exist')
     end
-
-
   end
-
 end

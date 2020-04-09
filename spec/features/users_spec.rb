@@ -3,8 +3,6 @@ require 'database_cleaner/active_record'
 
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.start
-
-# rubocop: disable Metrics/BlockLength
 RSpec.feature 'Users', type: :feature do
   before(:each) do
     DatabaseCleaner.clean
