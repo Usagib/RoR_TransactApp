@@ -1,17 +1,19 @@
 <div class="container-fluid">
   <div class="row">
     <h3 class="mb-4">Welcome back!</h3>
+  </div>
+  <div class="row">
+    <div class="col-4">
+    </div>
     <div class="col-6">
       <%= form_for(:session, url: login_path ) do |f| %>
-        <div class="form-label-group">
-          <%= f.label :email, class: "loginlabel" %>
-          <%= f.email_field :email, class: 'form-control, logininput', id: "inputEmail" %>
-        </div>
-        <div class="form-label-group">
-          <%= f.label :password, class: "loginlabel" %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control logininput', id: "inputEmail" %>
+
+          <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control logininput', id: "inputPassword" %>
           <%= f.submit "Log in", class: "btn btn-primary btn-login text-uppercase font-weight-bold mb-2" %>
-        </div>
+
       <% end %>
     </div>
   </div>
