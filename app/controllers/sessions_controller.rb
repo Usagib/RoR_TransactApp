@@ -4,18 +4,18 @@ class SessionsController < ApplicationController
   def create
     user = find_user
     if user&.authenticate(params[:session][:password])
-      remember user
+      remember(user)
       flash.now[:sucess] = 'Login successfull'
-      redirect_to mytransactions_path
+      redirect_to(mytransactions_path)
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      render('new')
     end
   end
 
   def destroy
     log_out
-    redirect_to root_url
+    redirect_to(root_url)
   end
 
   private

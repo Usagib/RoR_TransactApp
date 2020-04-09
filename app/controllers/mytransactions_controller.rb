@@ -10,9 +10,9 @@ class MytransactionsController < ApplicationController
     @mytransaction = @current_user.mytransactions.new(mytransaction_params)
     if @mytransaction.save
       flash.now[:sucess] = 'transaction created'
-      redirect_to mytransactions_path
+      redirect_to(mytransactions_path)
     else
-      render 'new'
+      render('new')
     end
   end
 
@@ -26,7 +26,7 @@ class MytransactionsController < ApplicationController
 
   def logged_in_user
     store_location
-    redirect_to login_path unless logged_in?
+    redirect_to(login_path) unless logged_in?
     flash[:danger] = 'Please log in.' unless logged_in?
   end
 

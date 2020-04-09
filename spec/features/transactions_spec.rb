@@ -1,9 +1,9 @@
-require 'rails_helper'
-require 'database_cleaner/active_record'
+require('rails_helper')
+require('database_cleaner/active_record')
 
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.start
-RSpec.feature 'transactions', type: :feature do
+RSpec.feature('transactions', type: :feature) do
   before(:each) do
     DatabaseCleaner.clean
     visit users_new_path
@@ -30,7 +30,7 @@ RSpec.feature 'transactions', type: :feature do
         fill_in 'Amount', with: 1234
       end
       click_button 'create transaction'
-      expect(page).to have_content('Group must exist')
+      expect(page).to(have_content('Group must exist'))
     end
   end
 end

@@ -1,4 +1,5 @@
 AllCops:
+  EnabledByDefault: true
   Exclude:
     - "db/**/*"
     - "bin/*"
@@ -33,6 +34,8 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/Copyright:
+  Enabled: false
 Style/EachForSimpleLoop:
   Enabled: false
 Style/AndOr:
@@ -41,6 +44,10 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/DocumentationMethod:
+  Enabled: false
+Style/ConstantVisibility:
+  Enabled: false
 
 Layout/HashAlignment:
   EnforcedColonStyle: key

@@ -1,9 +1,9 @@
-require 'rails_helper'
-require 'database_cleaner/active_record'
+require('rails_helper')
+require('database_cleaner/active_record')
 
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.start
-RSpec.feature 'Groups', type: :feature do
+RSpec.feature('Groups', type: :feature) do
   before(:each) do
     DatabaseCleaner.clean
     visit users_new_path
@@ -24,7 +24,7 @@ RSpec.feature 'Groups', type: :feature do
         attach_file 'spec/files/barcode.png'
       end
       click_button 'create group'
-      expect(page).to have_content('Test group', 'All Groups')
+      expect(page).to(have_content('Test group', 'All Groups'))
     end
   end
 end

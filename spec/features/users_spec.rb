@@ -1,9 +1,9 @@
-require 'rails_helper'
-require 'database_cleaner/active_record'
+require('rails_helper')
+require('database_cleaner/active_record')
 
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.start
-RSpec.feature 'Users', type: :feature do
+RSpec.feature('Users', type: :feature) do
   before(:each) do
     DatabaseCleaner.clean
   end
@@ -19,7 +19,7 @@ RSpec.feature 'Users', type: :feature do
         fill_in 'Confirmation', with: '123456'
       end
       click_button 'createuser'
-      expect(page).to have_content('Eduardo')
+      expect(page).to(have_content('Eduardo'))
     end
 
     scenario 'should not create new user' do
@@ -32,7 +32,7 @@ RSpec.feature 'Users', type: :feature do
         fill_in 'Confirmation', with: '1234567'
       end
       click_button 'createuser'
-      expect(page).to have_content('Password confirmation doesn\'t match')
+      expect(page).to(have_content('Password confirmation doesn\'t match'))
     end
   end
 end
