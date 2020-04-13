@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      remember @user
+      remember(@user)
       flash.now[:success] = 'The user has been created'
-      redirect_to mytransactions_path
+      redirect_to(mytransactions_path)
     else
-      render 'new'
+      render('new')
     end
   end
 
@@ -29,9 +29,9 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = 'User updated succesfully!'
-      redirect_to @user
+      redirect_to(@user)
     else
-      render 'edit'
+      render('edit')
     end
   end
 
@@ -42,8 +42,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :password_confirmation
+    )
   end
 
   def set_user
@@ -53,7 +57,7 @@ class UsersController < ApplicationController
   # Confirms the correct user.
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_url unless current_user_check(@user)
+    redirect_to(root_url) unless current_user_check(@user)
     flash[:danger] = 'Cannot edit other user!' unless current_user_check(@user)
   end
 end

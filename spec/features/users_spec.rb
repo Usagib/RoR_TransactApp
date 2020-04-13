@@ -1,9 +1,11 @@
-require 'rails_helper'
+require('rails_helper')
+require('database_cleaner/active_record')
 
-# rubocop: disable Metrics/BlockLength
-RSpec.feature 'Users', type: :feature do
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.start
+RSpec.feature('Users', type: :feature) do
   before(:each) do
-    @testuser1 = User.create(name: 'User_sending', email: 'sender@user.com', password: '123456')
+    DatabaseCleaner.clean
   end
 
   context 'create new user, signup' do
@@ -17,7 +19,7 @@ RSpec.feature 'Users', type: :feature do
         fill_in 'Confirmation', with: '123456'
       end
       click_button 'createuser'
-      expect(page).to have_content('Eduardo')
+      expect(page).to(have_content('Eduardo'))
     end
 
     scenario 'should not create new user' do
@@ -30,29 +32,7 @@ RSpec.feature 'Users', type: :feature do
         fill_in 'Confirmation', with: '1234567'
       end
       click_button 'createuser'
-      expect(page).to have_content('Password confirmation doesn\'t match')
-    end
-  end
-
-  context 'sign in user' do
-    scenario 'should sign in' do
-      visit new_user_session_path
-      within('form') do
-        fill_in 'Email', with: 'sender@user.com'
-        fill_in 'Password', with: '123456'
-      end
-      click_button 'Log in'
-      expect(page).to have_content('Signed in successfully')
-    end
-
-    scenario 'should not sign in' do
-      visit new_user_session_path
-      within('form') do
-        fill_in 'Email', with: 'sender@user.com'
-        fill_in 'Password', with: '1234567'
-      end
-      click_button 'Log in'
-      expect(page).to have_content('Invalid Email or password.')
+      expect(page).to(have_content('Password confirmation doesn\'t match'))
     end
   end
 end

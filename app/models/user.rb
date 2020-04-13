@@ -5,9 +5,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :password, presence: true, length: { minimum: 6, maximum: 255 }
-  validates :email, presence: true, length: { minimum: 10, maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+  validates :email,
+            presence: true,
+            length: { minimum: 10, maximum: 255 },
+            format: { with: VALID_EMAIL_REGEX },
+            uniqueness: { case_sensitive: false }
 
   has_secure_password
   has_many :groups
