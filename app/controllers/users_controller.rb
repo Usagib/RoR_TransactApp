@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[update edit destroy show]
-  before_action :correct_user, only: %i[edit update]
   skip_before_action :verify_authenticity_token
 
   def new
@@ -22,19 +20,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
-
-  def edit; end
-
-  def update
-    if @user.update(user_params)
-      flash[:success] = 'User updated succesfully!'
-      redirect_to(@user)
-    else
-      render('edit')
-    end
-  end
-
   def destroy
     @user.destroy
   end
@@ -54,10 +39,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user_check(@user)
-    flash[:danger] = 'Cannot edit other user!' unless current_user_check(@user)
-  end
 end
