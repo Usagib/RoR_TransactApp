@@ -18,16 +18,16 @@
 
 <div class="container">
 
-    <% @mytransactions.each do |mytransaction| %>
+    <% @mytransactions.find_each do |mytransaction| %>
     <div class="row">
       <div class="col-5">
-        <%= mytransaction.name if mytransaction.nogroup? %>
+        <%= mytransaction.name %>
       </div>
       <div class="col-3">
-        <p><%= mytransaction.amount if mytransaction.nogroup? %></p>
+        <p><%= mytransaction.amount %></p>
       </div>
       <div class="col-4">
-        <p><%= mytransaction.created_at if mytransaction.nogroup? %></p>
+        <p><%= mytransaction.created_at %></p>
       </div>
     </div>
     <% end %>

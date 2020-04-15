@@ -13,7 +13,7 @@
 
   <p>created by <%= @group.user.name  %></p>
 
-    <% @group.mytransactions.each do |t| %>
+    <% @group.mytransactions.find_each do |t| %>
     <div class="row">
       <div class="col-4">
         <p>created by:<%= t.user.name %></p>

@@ -17,21 +17,19 @@
 </div>
 
 <div class="container">
-    <% @mytransactions.each do |mytransaction| %>
+    <% @mytransactions.find_each do |mytransaction| %>
     <div class="row">
       <div class="col-2">
-        <% if mytransaction.group? %>
         <img class="group-icon" src="<%= mytransaction.group.picture.url %>" alt="">
-        <% end %>
       </div>
       <div class="col-5">
-        <h4><%= mytransaction.name if mytransaction.group? %></h4>
+        <h4><%= mytransaction.name %></h4>
       </div>
       <div class="col-2">
-        <p><%= mytransaction.amount if mytransaction.group? %></p>
+        <p><%= mytransaction.amount %></p>
       </div>
       <div class="col-3">
-        <p><%= mytransaction.created_at if mytransaction.group? %></p>
+        <p><%= mytransaction.created_at %></p>
       </div>
     </div>
     <% end %>
