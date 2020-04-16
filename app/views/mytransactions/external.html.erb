@@ -18,7 +18,7 @@
 
 <div class="container">
 
-    <% @mytransactions.find_each do |mytransaction| %>
+    <% @mytransactions.each do |mytransaction| %>
     <div class="row">
       <div class="col-5">
         <%= mytransaction.name %>
