@@ -1,11 +1,8 @@
 <div class="container-fluid">
   <div class="row main-title">
-    <div class="col-8">
+
         <span class="title ml-5">New Transaction</span>
-    </div>
-    <div class="col-4">
-        <%= render 'shared/toggler' %>
-    </div>
+
   </div>
 </div>
 <div class="conatiner">
@@ -21,6 +18,6 @@
     <%= f.label :group, class: 'form-text' %>
     <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true %>
     <br>
-    <%= f.submit 'create transaction', class: "btn btn-primary mt-4" %>
+    <%= f.submit 'Create Transaction', class: "btn btn-primary mt-4" %>
   <% end %>
 </div>

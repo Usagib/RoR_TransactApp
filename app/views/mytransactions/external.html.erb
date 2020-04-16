@@ -1,16 +1,13 @@
 <div class="container-fluid">
   <div class="row main-title">
-    <div class="col-8">
+
         <span class="title ml-5">External Transactions</span>
-    </div>
-    <div class="col-4">
-        <%= render 'shared/toggler' %>
-    </div>
+
   </div>
   <div class="row mt-3 mb-3">
     <div class="col-2"></div>
     <div class="col-8">
-        <span class="ml-5"> Total Amount: <%= total_ungrouped_amount %></span>
+        <span class="ml-5"> Total Amount: $ <%= total_ungrouped_amount %></span>
     </div>
     <div class="col-2"></div>
   </div>
@@ -24,7 +21,7 @@
         <%= mytransaction.name %>
       </div>
       <div class="col-3">
-        <p><%= mytransaction.amount %></p>
+        <p>$ <%= mytransaction.amount %></p>
       </div>
       <div class="col-4">
         <p><%= mytransaction.created_at %></p>
@@ -36,7 +33,7 @@
 
       </div>
       <div class="col-4">
-        <%= link_to "New transaction", new_mytransaction_path, class: "btn btn-primary" %>
+        <%= link_to "New Transaction", new_mytransaction_path, class: "btn btn-primary" %>
       </div>
       <div class="col-4">
 
