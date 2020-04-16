@@ -6,7 +6,7 @@ class Mytransaction < ApplicationRecord
   validates :amount, presence: true
 
   default_scope -> { order(created_at: :desc) }
-  scope :grouped, -> { where.not("group_id IS NULL") }
-  scope :ungrouped, -> { where("group_id IS NULL") }
+  scope :grouped, -> { where.not('group_id IS NULL') }
+  scope :ungrouped, -> { where('group_id IS NULL') }
 
 end
