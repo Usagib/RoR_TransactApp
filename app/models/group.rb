@@ -7,5 +7,4 @@ class Group < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :ordered, -> { order(name: :asc) }
-
 end

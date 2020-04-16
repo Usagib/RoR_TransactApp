@@ -13,24 +13,23 @@ RSpec.feature('transactions', type: :feature) do
       fill_in 'Password', with: '123456'
       fill_in 'Confirmation', with: '123456'
     end
-    click_button 'createuser'
+    click_button 'Sign Up'
     visit new_group_path
     within('form') do
       fill_in 'Name', with: 'Test group'
       attach_file 'spec/files/barcode.png'
     end
-    click_button 'create group'
+    click_button 'Create Group'
   end
 
   context 'create transaction' do
     scenario 'should not create new transaction' do
       visit new_mytransaction_path
       within('form') do
-        fill_in 'Name', with: 'Test transactions'
         fill_in 'Amount', with: 1234
       end
-      click_button 'create transaction'
-      expect(page).to(have_content('Group must exist'))
+      click_button 'Create Transaction'
+      expect(page).to(have_content('Name can\'t be blank'))
     end
   end
 end

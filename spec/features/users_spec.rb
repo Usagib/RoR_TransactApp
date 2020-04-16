@@ -18,7 +18,7 @@ RSpec.feature('Users', type: :feature) do
         fill_in 'Password', with: '123456'
         fill_in 'Confirmation', with: '123456'
       end
-      click_button 'createuser'
+      click_button 'Sign Up'
       expect(page).to(have_content('Eduardo'))
     end
 
@@ -31,7 +31,7 @@ RSpec.feature('Users', type: :feature) do
         fill_in 'Password', with: '123456'
         fill_in 'Confirmation', with: '1234567'
       end
-      click_button 'createuser'
+      click_button 'Sign Up'
       expect(page).to(have_content('Password confirmation doesn\'t match'))
     end
   end
