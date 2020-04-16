@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
   def show; end
 
   def index
-    @groups = Group.order(:name).includes(:mytransactions)
+    @groups = Group.ordered
   end
 
   def logged_in_user

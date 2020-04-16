@@ -11,7 +11,7 @@
 
 <div class="container">
 
-    <% @groups.find_each do |group| %>
+    <% @groups.each do |group| %>
     <div class="row">
       <div class="col-2">
           <%= image_tag group.picture.url, size: "50x50" if group.picture? %>
