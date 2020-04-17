@@ -12,7 +12,7 @@
 
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control logininput', id: "inputPassword" %>
-          <%= f.submit "Log in", class: "btn btn-primary btn-login text-uppercase font-weight-bold mb-2" %>
+          <%= f.submit "Log in", class: "btn btn-primary btn-login font-weight-bold mb-2" %>
 
       <% end %>
     </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="col-6">
       OR <br>
-      <%= link_to "signup", users_new_path, class: "btn btn-primary" %>
+      <%= link_to "Sign Up", users_new_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>

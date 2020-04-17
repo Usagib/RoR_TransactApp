@@ -13,7 +13,7 @@ RSpec.feature('Groups', type: :feature) do
       fill_in 'Password', with: '123456'
       fill_in 'Confirmation', with: '123456'
     end
-    click_button 'createuser'
+    click_button 'Sign Up'
   end
 
   context 'create groups' do
@@ -23,7 +23,7 @@ RSpec.feature('Groups', type: :feature) do
         fill_in 'Name', with: 'Test group'
         attach_file 'spec/files/barcode.png'
       end
-      click_button 'create group'
+      click_button 'Create Group'
       expect(page).to(have_content('Test group', 'All Groups'))
     end
   end

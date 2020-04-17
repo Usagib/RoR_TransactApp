@@ -1,11 +1,6 @@
 <div class="container-fluid">
   <div class="row main-title">
-    <div class="col-8">
         <span class="title ml-5">All Groups</span>
-    </div>
-    <div class="col-4">
-        <%= render 'shared/toggler' %>
-    </div>
   </div>
 </div>
 
@@ -13,7 +8,7 @@
 
   <p>created by <%= @group.user.name  %></p>
 
-    <% @group.mytransactions.each do |t| %>
+    <% @group.mytransactions.find_each do |t| %>
     <div class="row">
       <div class="col-4">
         <p>created by:<%= t.user.name %></p>
@@ -22,7 +17,7 @@
         <p><%= t.name %></p>
       </div>
       <div class="col-4">
-        <p>$<%= t.amount %></p>
+        <p>$ <%= t.amount %></p>
       </div>
     </div>
     <% end %>

@@ -1,16 +1,12 @@
 class Mytransaction < ApplicationRecord
   belongs_to :user
-  belongs_to :group
+  belongs_to :group, optional: true
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :amount, presence: true
 
-  def group?
-    !group_id.nil?
-    group.name != 'No group'
-  end
+  default_scope -> { order(created_at: :desc) }
+  scope :grouped, -> { where.not('group_id IS NULL') }
+  scope :ungrouped, -> { where('group_id IS NULL') }
 
-  def nogroup?
-    group.name == 'No group'
-  end
 end

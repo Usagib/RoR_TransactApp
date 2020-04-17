@@ -8,7 +8,7 @@
   <h3 align="center">Transaction App - RoR Capstone Project </h3>
 
   <p align="center">
-    The following project serves as assesment for Ruby on Rails as a Microverse Student
+    The following project serves as assessment for Ruby on Rails as a Microverse Student
     <br />
     <a href="https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce"><strong> Project Specs »</strong></a>
     <br />
@@ -16,7 +16,7 @@
   </p>
 </p>
 
-> Assesment on Ruby on Rails
+> Assessment on Ruby on Rails
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents

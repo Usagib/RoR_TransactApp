@@ -1,11 +1,6 @@
 <div class="container-fluid">
   <div class="row main-title">
-    <div class="col-8">
-        <span class="title ml-5">All groups</span>
-    </div>
-    <div class="col-4">
-        <%= render 'shared/toggler' %>
-    </div>
+        <span class="title ml-5">All Groups</span>
   </div>
 </div>
 
@@ -21,7 +16,7 @@
       </div>
       <div class="col-4">
             <h4><%= group.created_at %></h4>
-            <%= link_to "Go to group", group_path(group), class: "btn btn-primary" %>
+            <%= link_to "Group", group_path(group), class: "btn btn-primary" %>
       </div>
     </div>
     <% end %>

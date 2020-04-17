@@ -6,7 +6,5 @@ class Group < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  def transaction?
-    mytransactions != nil
-  end
+  scope :ordered, -> { order(name: :asc) }
 end

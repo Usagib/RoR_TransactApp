@@ -17,11 +17,11 @@ class MytransactionsController < ApplicationController
   end
 
   def index
-    @mytransactions = @current_user.mytransactions.includes(:group)
+    @mytransactions = @current_user.mytransactions.grouped
   end
 
   def external
-    @mytransactions = @current_user.mytransactions.includes(:group)
+    @mytransactions = @current_user.mytransactions.ungrouped
   end
 
   def logged_in_user
