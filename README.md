@@ -1,14 +1,14 @@
  > Updated Version 1.1 
 <br />
 <p align="center">
-  <a href="https://github.com/Usagib/ror_capstone">
+  <a href="https://github.com/Usagib/RoR_TransactApp">
     <img src="https://blog.nubecolectiva.com/wp-content/uploads/2019/03/1.gif" alt="Logo">
   </a>
 
-  <h3 align="center">Transaction App - RoR Capstone Project </h3>
+  <h3 align="center">TransactApp - Ruby on Rails web app  </h3>
 
   <p align="center">
-    The following project serves as assessment for Ruby on Rails as a Microverse Student
+    TransactApp allows users to create an account and login to group any transaction submitted 
     <br />
     <a href="https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce"><strong> Project Specs »</strong></a>
     <br />
@@ -16,7 +16,6 @@
   </p>
 </p>
 
-> Assessment on Ruby on Rails
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -126,8 +125,9 @@ Additional Gems used
 
 ## Contact
 
-Eduardo Bonilla [https://github.com/UsagiB](https://github.com/UsagiB)
-
+* Eduardo Bonilla Cáceres - eduardobonillac@gmail.com
+* [My Portfolio](https://usagib.surge.sh)
+* [My Twitter](https://twitter.com/UsagiBonilla)
 
 ## Show your support
 
