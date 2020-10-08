@@ -1,4 +1,9 @@
  > Updated Version 1.1 
+ ### Upcoming features
+ - UI redesign
+ - Image upload persistence
+ - Expenses export
+ 
 <br />
 <p align="center">
   <a href="https://github.com/Usagib/RoR_TransactApp">
